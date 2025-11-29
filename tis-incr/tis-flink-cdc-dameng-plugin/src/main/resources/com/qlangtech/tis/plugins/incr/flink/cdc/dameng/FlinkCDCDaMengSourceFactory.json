@@ -1,0 +1,29 @@
+{
+  "startupOptions": {
+    "dftVal": "latest",
+    "enum": [
+      {
+        "val": "initial",
+        "label": "Initial"
+      },
+      {
+        "val": "latest",
+        "label": "Latest"
+      }
+    ]
+  },
+  "independentBinLogMonitor": {
+    "label": "BinLog独立监听",
+    "dftVal": false,
+    "enum": [
+      {
+        "val": true,
+        "label": "是"
+      },
+      {
+        "val": false,
+        "label": "否"
+      }
+    ]
+  }
+}
