@@ -5,12 +5,12 @@
   <parent>
     <groupId>com.qlangtech.tis.plugins</groupId>
     <artifactId>tis-dameng-plugin</artifactId>
-    <version>4.3.0</version>
+    <version>5.0.0-SNAPSHOT</version>
     <relativePath>../../pom.xml</relativePath>
   </parent>
   <groupId>com.qlangtech.tis.plugins</groupId>
   <artifactId>tis-flink-cdc-dameng-plugin</artifactId>
-  <version>4.3.0</version>
+  <version>5.0.0-SNAPSHOT</version>
   <packaging>tpi</packaging>
   <licenses>
     <license>
@@ -21,14 +21,20 @@
   </licenses>
   <dependencies>
     <dependency>
+      <groupId>com.qlangtech.tis.plugins</groupId>
+      <artifactId>tis-incr-test</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.testcontainers</groupId>
+      <artifactId>oracle-xe</artifactId>
+      <version>${testcontainers.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
       <groupId>org.apache.flink</groupId>
-      <artifactId>flink-connector-oracle-cdc-tis</artifactId>
+      <artifactId>flink-connector-dameng-cdc-tis</artifactId>
       <version>${flink.cdc.version}</version>
       <exclusions>
-        <exclusion>
-          <groupId>io.debezium</groupId>
-          <artifactId>debezium-connector-oracle</artifactId>
-        </exclusion>
         <exclusion>
           <groupId>com.oracle.ojdbc</groupId>
           <artifactId>ojdbc8</artifactId>

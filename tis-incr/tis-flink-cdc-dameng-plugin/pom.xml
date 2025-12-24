@@ -33,13 +33,13 @@
 
         <dependency>
             <groupId>org.apache.flink</groupId>
-            <artifactId>flink-connector-oracle-cdc-tis</artifactId>
+            <artifactId>flink-connector-dameng-cdc-tis</artifactId>
             <version>${flink.cdc.version}</version>
             <exclusions>
-                <exclusion>
-                    <groupId>io.debezium</groupId>
-                    <artifactId>debezium-connector-oracle</artifactId>
-                </exclusion>
+<!--                <exclusion>-->
+<!--                    <groupId>io.debezium</groupId>-->
+<!--                    <artifactId>debezium-connector-dameng</artifactId>-->
+<!--                </exclusion>-->
                 <exclusion>
                     <groupId>com.oracle.ojdbc</groupId>
                     <artifactId>ojdbc8</artifactId>

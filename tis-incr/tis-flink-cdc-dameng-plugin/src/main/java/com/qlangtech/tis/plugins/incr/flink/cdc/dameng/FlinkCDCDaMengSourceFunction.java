@@ -51,9 +51,7 @@ import io.debezium.jdbc.JdbcConfiguration;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.tuple.Triple;
 import org.apache.flink.cdc.connectors.base.source.jdbc.JdbcIncrementalSource;
-import org.apache.flink.cdc.connectors.oracle.source.OracleSourceBuilder;
-import org.apache.flink.cdc.connectors.oracle.source.config.OracleSourceConfigFactory;
-import org.devlive.connector.dameng.DamengConnector;
+import org.apache.flink.cdc.connectors.dameng.source.DamengSourceBuilder;
 import org.devlive.connector.dameng.DamengConnectorConfig;
 
 import java.util.List;
@@ -75,7 +73,6 @@ public class FlinkCDCDaMengSourceFunction implements IMQListener<List<ReaderSour
     public FlinkCDCDaMengSourceFunction(FlinkCDCDaMengSourceFactory sourceFactory) {
         this.sourceFactory = sourceFactory;
     }
-
 
     @Override
     public AsyncMsg<List<ReaderSource>> start(IConsumerRateLimiter streamFactory, boolean flinkCDCPipelineEnable,
@@ -138,13 +135,8 @@ public class FlinkCDCDaMengSourceFunction implements IMQListener<List<ReaderSour
                     }
 
 
-                    OracleSourceBuilder<DTO> builder =
-                            OracleSourceBuilder.OracleIncrementalSource.builder(new OracleSourceConfigFactory() {
-                        @Override
-                        protected Class<?> getConnectorClass() {
-                            return DamengConnector.class;
-                        }
-                    });
+                    DamengSourceBuilder<DTO> builder =
+                            DamengSourceBuilder.DamengIncrementalSource.builder();
                     builder.hostname(dbHost) //
                             .debeziumProperties(debeziumProperties) //
                             .port(dsFactory.port) //
